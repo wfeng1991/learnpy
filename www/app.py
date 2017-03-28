@@ -16,6 +16,8 @@ def index(request):
 
 @asyncio.coroutine
 def init(loop):
+    conf = {'user':'root', 'password':'', 'database':'test'}
+    create_pool(loop, conf)
     app = web.Application(loop=loop)
     app.router.add_route('GET', '/', index)
     srv = yield from loop.create_server(app.make_handler(), '127.0.0.1', 9000)
