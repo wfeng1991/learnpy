@@ -152,6 +152,21 @@ class Model(dict, metaclass=ModelMetaclass):
         rows = yield from execute(self.__insert__, args)
         if rows != 1:
             logging.warn('failed to insert record: affected rows: %s' % rows)
+    
+    @asyncio.coroutine
+    def delete(self):
+        args = [self.getValueOrDefault(self.__primary_key__)]
+        rows = yield from execute(self.__delete__, args)
+        if rows != 1:
+            logging.warn('failed to delete one record: affected rows: %s' % rows)
+
+    @asyncio.coroutine
+    def update(self):
+        args = list(map(self.getValueOrDefault, self.__fields__))
+        args.append(self.getValueOrDefault(self.__primary_key__))
+        rows = yield from execute(self.__update__, args)
+        if rows != 1:
+            logging.warn('failed to update one record: affected rows: %s' % rows)
 
 class Field(object):
 
