@@ -4,7 +4,7 @@ from aiohttp import web
 
 logging.basicConfig(level=logging.INFO)
 
-def index():
+def index(request):
     return web.Response(body='Awesome')
 
 @asyncio.coroutine
