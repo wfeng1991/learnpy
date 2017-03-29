@@ -136,6 +136,15 @@ class Model(dict, metaclass=ModelMetaclass):
             return None
         return cls(**rs[0])
 
+    @classmethod
+    @asyncio.coroutine
+    def findAll(cls):
+        ' find object by primary key. '
+        rs = yield from select('%s' % (cls.__select__), [])
+        if len(rs) == 0:
+            return None
+        return list(map(lambda x: cls(**x), rs))
+
     @asyncio.coroutine
     def save(self):
         args = list(map(self.getValueOrDefault, self.__fields__))
