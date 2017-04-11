@@ -19,7 +19,7 @@ def create_pool(loop, **kw):
         port=kw.get('port', 3306),
         user=kw['user'],
         password=kw['password'],
-        db=kw['db'],
+        db=kw['database'],
         charset=kw.get('charset', 'utf8'),
         autocommit=kw.get('autocommit', True),
         maxsize=kw.get('maxsize', 10),
@@ -198,7 +198,7 @@ class IntegerField(Field):
 class FloatField(Field):
 
     def __init__(self, name=None, primary_key=False, default=0.0):
-        super().__init__(name, 'real', primary_key, default)
+        super().__init__(name, 'double', primary_key, default)
 
 class TextField(Field):
 
