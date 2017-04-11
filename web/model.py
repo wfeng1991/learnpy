@@ -42,3 +42,6 @@ class Comment(Model):
     content = TextField()
     created_at = FloatField(default=time.time)
 
+
+
+
