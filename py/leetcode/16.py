@@ -38,12 +38,10 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        l = length
         j = 0
-        while j < l-2:
-            i = j+1
-            low = i 
-            high = l
+        while j < length-2:
+            low = j+1
+            high = length
             while low < high:
                 t = target - nums[j]
                 if t == nums[low] + nums[high]:
