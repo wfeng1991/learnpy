@@ -14,7 +14,7 @@ class Solution(object):
         """
         if p is not None and q is not None:
             return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
-        if (p is None and q is None) or (p is not None and q is not None and p.val == q.val):
+        elif p is None and q is None:
             return True
         else:
             return False
@@ -22,6 +22,6 @@ class Solution(object):
 t1 = TreeNode(1)
 t1.left=TreeNode(2)
 t2 = TreeNode(1)
-t2.left=TreeNode(3)
+t2.left=TreeNode(5)
 
 print(Solution().isSameTree(t1,t2))       
