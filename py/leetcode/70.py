@@ -17,6 +17,7 @@ class Solution(object):
                 walk(n-1)
         walk(n)
         return self.cnt
+    # 其实就是一个斐波那契数列  到达n步 = 到达n-1步 + 到达n-2步
     def climbStairs(self, n):
         """
         :type n: int
