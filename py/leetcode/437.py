@@ -29,6 +29,7 @@ class Solution(object):
         return helper(root, 0, sum, dic)
         
         
+        
 
 
 t = TreeNode(10)
@@ -46,5 +47,11 @@ t.left.left.left = TreeNode(3)
 t.left.left.right = TreeNode(-2)
 
 t.left.right.right = TreeNode(1)
+
+# t = TreeNode(1)
+# t.right = TreeNode(2)
+# t.right.right = TreeNode(3)
+# t.right.right.right = TreeNode(4)
+# t.right.right.right.right = TreeNode(5)
 
 print(Solution().pathSum(t,8))
