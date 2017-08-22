@@ -21,5 +21,6 @@ class Solution(object):
                 if self.n==0:
                     self.r=root.val
                 help(root.right)
-        
+        help(root)
+        return self.r
         
