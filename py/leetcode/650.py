@@ -14,10 +14,11 @@ class Solution(object):
             return 0
         else:
             cnt=0
-            while prime(n):
-                t=prime(n)
+            t=prime(n)
+            while t:
                 n=n//t
                 cnt+=t
+                t=prime(n)
             if n!=1:
                 cnt+=n
             return cnt
