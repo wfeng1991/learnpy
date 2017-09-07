@@ -79,7 +79,7 @@ class Solution(object):
         while i>=0 and dic[i]>0:
             idle_slots-=min(max_val,dic[i])
             i-=1
-        return len(tasks) if idle_slots==0 else idle_slots+len(tasks)
-print(Solution().leastInterval(['A','A','A','A','A','A','B','C','D','E','F','G'], 2))
+        return len(tasks) if idle_slots<=0 else idle_slots+len(tasks)
+print(Solution().leastInterval(['A','A','A','B','B','B'], 0))
         
                 
