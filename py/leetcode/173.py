@@ -22,7 +22,6 @@ class BSTIterator(object):
         node=self.cur_node
         while node:
             self.stack.append(node)
-            curNode = node
             node=node.left
         return len(self.stack)!=0
 
