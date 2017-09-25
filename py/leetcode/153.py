@@ -18,8 +18,6 @@ class Solution(object):
                 s=s+1
             elif nums[mid]>nums[e]:
                 s=mid+1
-            else:
-                return nums[mid]
         return nums[s]
 
 print(Solution().findMin([1,2,3,1,0,1]))
