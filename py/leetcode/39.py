@@ -5,16 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        self.res=[]
-        def help(candidates, target, r):
+        res=[]
+        def help(candidates, target, t, res):
             if target<0:
                 return
             if target==0:
-                self.res.append(r)
+                res.append(t)
                 return
             for i, v in enumerate(candidates):
-                help(candidates[i:], target-v, r+[v])
-        help(candidates,target,[])
-        return self.res
+                help(candidates[i:], target-v, t+[v], res)
+        help(candidates,target,[],res)
+        return res
 
 print(Solution().combinationSum([2, 3, 6, 7], 7))
