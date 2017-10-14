@@ -6,7 +6,7 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-    def flatten(self, root):
+    def flatten1(self, root):
         """
         :type root: TreeNode
         :rtype: void Do not return anything, modify root in-place instead.
@@ -25,6 +25,28 @@ class Solution(object):
             else:
                 return None
         help(root)
+
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: void Do not return anything, modify root in-place instead.
+        """
+        def dfs(root):            
+            if not root.right and not root.left:
+                return root
+            right = root.right
+            right_last, left_last = None, None
+            if root.right:
+                right_last = dfs(root.right)
+            if root.left:
+                left_last = dfs(root.left)
+                root.right = root.left
+                root.left = None
+                left_last.right = right
+                right = root.right
+            return right_last or left_last
+        if root:dfs(root)
+
 
 t=TreeNode(1)
 t.right=TreeNode(2)
