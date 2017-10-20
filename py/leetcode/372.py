@@ -1,5 +1,5 @@
 class Solution(object):
-    def superPow(self, a, b):
+    def superPow1(self, a, b):
         """
         :type a: int
         :type b: List[int]
@@ -17,5 +17,8 @@ class Solution(object):
             res%=1337
             i+=1
         return res
+
+    def superPow(self,a,b):
+        return 0 if a % 1337 == 0 else pow(a, reduce(lambda x, y: (x * 10 + y) % 1140, b) + 1140, 1337)
 
 print(Solution().superPow(2147483647,[2,0,0]))
