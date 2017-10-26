@@ -54,4 +54,4 @@ class Solution(object):
             i=parent[i]
         return res
 
-print(Solution().largestDivisibleSubset([1]))
+print(Solution().largestDivisibleSubset([]))
