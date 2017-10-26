@@ -47,8 +47,8 @@ class Solution(object):
                 maxidx=i
         res=[]
         if maxidx>-1:
-            res+=[nums[maxidx]]
             i=maxidx
+            res.append(nums[parent[i]])
             while parent[i]!=i:
                 res.append(nums[parent[i]])
                 i=parent[i]
