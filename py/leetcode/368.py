@@ -31,8 +31,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        if len(nums)<2:
-            return [x for x in nums]
         l=[1]*len(nums)
         parent=[x for x in range(len(nums))]
         nums=sorted(nums)
@@ -47,11 +45,13 @@ class Solution(object):
             if l[i]>maxlen:
                 maxlen=l[i]
                 maxidx=i
-        res=[nums[maxidx]] if maxidx>-1 else []
-        i=maxidx
-        while parent[i]!=i:
-            res.append(nums[parent[i]])
-            i=parent[i]
+        res=[]
+        if maxidx>-1:
+            res+=[nums[maxidx]]
+            i=maxidx
+            while parent[i]!=i:
+                res.append(nums[parent[i]])
+                i=parent[i]
         return res
 
-print(Solution().largestDivisibleSubset([]))
+print(Solution().largestDivisibleSubset([3,2,8,16]))
