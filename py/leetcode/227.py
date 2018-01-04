@@ -74,21 +74,20 @@ class Solution(object):
                 self.p+=1
                 return op
         nums=[]
-        while True:
-            t=nextToken(s)
-            if t is not None:
-                if t=='*':
-                    nums[-1]*=nextToken(s)
-                elif t=='/': 
-                    nums[-1]=int(nums[-1]/nextToken(s))
-                elif t=='-':
-                    nums.append(-nextToken(s))
-                elif t=='+':
-                    nums.append(nextToken(s))
-                else:
-                    nums.append(t)
+        t=nextToken(s)
+        while t:
+            if t=='*':
+                nums[-1]*=nextToken(s)
+            elif t=='/': 
+                nums[-1]=int(nums[-1]/nextToken(s))
+            elif t=='-':
+                nums.append(-nextToken(s))
+            elif t=='+':
+                nums.append(nextToken(s))
             else:
-                break
+                nums.append(t)
+            t=nextToken(s)
+            
         return sum(nums)
         
 
