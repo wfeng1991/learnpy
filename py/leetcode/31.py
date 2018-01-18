@@ -10,7 +10,10 @@ class Solution:
         while i>0 and nums[i-1]>=nums[i]:
             i-=1
         if i==0:
-            nums=sorted(nums)
+            while p<q:
+                nums[p],nums[q]=nums[q],nums[p]
+                p+=1
+                q-=1
         else:
             j=i-1
             p=len(nums)-1
