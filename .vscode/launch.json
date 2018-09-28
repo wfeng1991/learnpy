@@ -10,7 +10,7 @@
             "pythonPath": "${config:python.pythonPath}",
             "program": "${file}",
             "cwd": "${workspaceRoot}",
-            "env": null,
+            "env": [],
             "envFile": "${workspaceRoot}/.env",
             "debugOptions": [
                 "WaitOnAbnormalExit",
